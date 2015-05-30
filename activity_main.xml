@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <TextView
+        android:text="@string/word_IP_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_address"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/ip_hint"
+        android:id="@+id/address"
+        android:layout_below="@+id/text_address"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/start_button"
+        android:onClick="onClick"
+        android:text="@string/start_button"
+        android:layout_below="@+id/address"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/word_status"
+        android:id="@+id/check_view"
+        android:layout_alignBottom="@+id/stop_button"
+        android:layout_alignLeft="@+id/profile_status"
+        android:layout_alignStart="@+id/profile_status"
+        android:layout_toStartOf="@+id/profile_button"
+        android:layout_toLeftOf="@+id/profile_button"
+        android:layout_alignTop="@+id/stop_button" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:id="@+id/profile_list"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"
+        android:layout_below="@+id/inet" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/word_profile"
+        android:onClick="on_profile_click"
+        android:id="@+id/profile_button"
+        android:layout_below="@+id/address"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_profile"
+        android:id="@+id/profile_status"
+        android:layout_below="@+id/address"
+        android:layout_toRightOf="@+id/start_button"
+        android:layout_toLeftOf="@+id/profile_button"
+        android:layout_toStartOf="@+id/profile_button"
+        android:layout_alignBottom="@+id/start_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Inet_button"
+        android:onClick="onClick"
+        android:id="@+id/Inet_button"
+        android:layout_below="@+id/profile_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stop_button"
+        android:onClick="onClick"
+        android:id="@+id/stop_button"
+        android:layout_below="@+id/start_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Inet_text"
+        android:id="@+id/inet"
+        android:layout_below="@+id/check_view"
+        android:layout_alignRight="@+id/Inet_button"
+        android:layout_alignEnd="@+id/Inet_button"
+        android:textSize="15sp"/>
+
+
+</RelativeLayout>
