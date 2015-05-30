@@ -6,3 +6,4 @@ PC:
 Android:
   client.java
   ui.xml
+  androidmanifest.xml
