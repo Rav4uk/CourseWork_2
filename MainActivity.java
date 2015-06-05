@@ -81,7 +81,7 @@ public class MainActivity extends ActionBarActivity {
         else
             findViewById(R.id.profile_list).setVisibility(View.INVISIBLE);
     }
-    
+
     public void onClick(View v) {
         String ip = ip_address.getText().toString();
 
@@ -94,25 +94,17 @@ public class MainActivity extends ActionBarActivity {
         else {
             check.setText("Loading...");
             if (stream_well) {
-                if (stream_flag_start) {
-                    if (v == findViewById(R.id.stop_button))
-                        check.setText("There is no stream");
-                    else {
-                        data = profile_status.getText().toString();
-                        MyClientTask myClientTask = new MyClientTask(ip, port, data, check);
-                        myClientTask.execute();
-                        stream_flag_start = false;
-
-                    }
-                } else {
-                    if (v == findViewById(R.id.start_button)) {
-                        check.setText("Stream's already started");
-                    } else {
-                        data = "3";
-                        MyClientTask myClientTask = new MyClientTask(ip, port, data, check);
-                        myClientTask.execute();
-                        stream_flag_start = true;
-                    }
+                if (v == findViewById(R.id.start_button))
+                {
+                    data = profile_status.getText().toString();
+                    MyClientTask myClientTask = new MyClientTask(ip, port, data, check);
+                    myClientTask.execute();
+                }
+                if (v == findViewById(R.id.stop_button))
+                {
+                    data = "3";
+                    MyClientTask myClientTask = new MyClientTask(ip, port, data, check);
+                    myClientTask.execute();
                 }
             }
             else
@@ -143,7 +135,7 @@ public class MainActivity extends ActionBarActivity {
                 socket = new Socket();
                 socket.connect(new InetSocketAddress(dstAddress, port), 1000);
                 socket.getOutputStream().write(data.getBytes());
-                
+
                 ByteArrayOutputStream byteArrayOutputStream =
                         new ByteArrayOutputStream(1024);
                 byte[] buffer = new byte[1024];
